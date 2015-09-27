@@ -86,10 +86,10 @@ button:hover {
     font-style:normal;
     font-weight:normal;
 	text-shadow:
-    -1px -1px 0 #a9a9a9,
-    1px -1px 0 #a9a9a9,
-    -1px 1px 0 #a9a9a9,
-    1px 1px 0 #a9a9a9;
+    -1px -1px 0 #203737,
+    1px -1px 0 #203737,
+    -1px 1px 0 #203737,
+    1px 1px 0 #203737;
 	color:#63215F
 }
 .item-title, .event-title, .wedding-event-title, .location-title {
