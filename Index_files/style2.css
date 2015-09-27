@@ -1,0 +1,112 @@
+@import url("http://fonts.googleapis.com/css?family=Pinyon+Script:400");
+@import url("http://fonts.googleapis.com/css?family=Kotta+One:400");
+body, a, a:hover {
+    font-family:"Arial";
+    font-size:12px;
+    font-style:normal;
+    font-weight:normal;
+    color:#000;
+    line-height:1.8
+}
+button {
+    font-family:"Kotta One";
+    font-size:15px;
+    font-style:solid;
+    font-weight:normal;
+    color:#63215F;
+    letter-spacing:1px;
+    border-color:#63215F;
+    border-style:solid;
+    border-width:1px;
+    border-radius:4px;
+    background-color:transparent;
+}
+button:hover {
+    background-color:#cccccc
+}
+#wedding-title {
+    font-family:"Pinyon Script";
+    font-size:60px;
+    font-style:normal;
+    font-weight:normal;
+	text-shadow:
+    -1px -1px 0 #a9a9a9,
+    1px -1px 0 #a9a9a9,
+    -1px 1px 0 #a9a9a9,
+    1px 1px 0 #a9a9a9;
+    color:#63215F
+}
+#wedding-date-location {
+    font-family:"Kotta One";
+    font-size:25px;
+    font-style:normal;
+    font-weight:normal;
+    color:#000
+}
+#countdown-container {
+	border: 6px solid #f99;
+	webkit-box-shadow: 0 0 20px #000;
+	box-shadow: 0 0 20px #000;
+	font-family:"Pinyon Script";
+    font-size:30px;
+    font-style:normal;
+    font-weight:normal;
+	width: 300px;
+	height: 130px;
+	text-align: center;
+	margin: 0 auto;
+}
+#main-nav li a {
+    font-family:"Kotta One";
+    font-size:16px;
+    font-style:normal;
+    font-weight:normal;
+    color:#000;
+    letter-spacing:1px
+}
+#main-nav li a:hover, #main-nav li a.selected {
+    color:#63215f
+}
+#main-container-background {
+    background-image: url(Flowers/1.jpg);
+    opacity: .8;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: top right
+}
+#main-nav-container.fixed {
+	background-color:rgba(249, 249, 249, 0.9)
+}
+#main-container-background, #main-nav>ul>li>ul {
+	background-color:#F9F9F9
+}
+.section-title, .event-section-title, .wedding-event-section-title, .wedding-party-section-title, .location-section-title, .album-section-title, .photo-section-title, .registry-section-title {
+    font-family:"Pinyon Script";
+    font-size:75px;
+    font-style:normal;
+    font-weight:normal;
+	text-shadow:
+    -1px -1px 0 #a9a9a9,
+    1px -1px 0 #a9a9a9,
+    -1px 1px 0 #a9a9a9,
+    1px 1px 0 #a9a9a9;
+	color:#63215F
+}
+.item-title, .event-title, .wedding-event-title, .location-title {
+    font-family:"Pinyon Script";
+    font-size:60px;
+    font-style:normal;
+    font-weight:normal;
+	text-shadow:
+    -1px -1px 0 #a9a9a9,
+    1px -1px 0 #a9a9a9,
+    -1px 1px 0 #a9a9a9,
+    1px 1px 0 #a9a9a9;
+    color:#63215F
+}
+.item-separator, .event-separator, .wedding-event-separator, .wedding-party-separator, .location-separator, .registry-separator {
+    background-position:center;
+    background-image:;
+    height:40px;
+    background-repeat:no-repeat
+}
