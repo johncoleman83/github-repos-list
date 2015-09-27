@@ -73,6 +73,12 @@ button:hover {
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: top right
+	-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+background-position: top center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed;
 }
 #main-nav-container.fixed {
 	background-color:rgba(249, 249, 249, 0.9)
