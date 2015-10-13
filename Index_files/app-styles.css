@@ -247,22 +247,22 @@ hr {
         width:1160px
     }
 }
-.row, .rsvp-name-container, .rsvp-event-container, .section-items, .event-section-items, .wedding-event-section-items, .wedding-party-section-items, .location-section-items, .album-section-items, .photo-section-items, .registry-section-items, .retailer-section-items {
+.row, .section-items, .event-section-items, .wedding-event-section-items, .wedding-party-section-items, .location-section-items, .album-section-items, .photo-section-items, .registry-section-items, .retailer-section-items {
     margin-left:-10px;
     margin-right:-10px
 }
-.row:before, .rsvp-name-container:before, .rsvp-event-container:before, .section-items:before, .event-section-items:before, .wedding-event-section-items:before, .wedding-party-section-items:before, .location-section-items:before, .album-section-items:before, .photo-section-items:before, .registry-section-items:before, .retailer-section-items:before, .row:after, .rsvp-name-container:after, .rsvp-event-container:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
+.row:before, .section-items:before, .event-section-items:before, .wedding-event-section-items:before, .wedding-party-section-items:before, .location-section-items:before, .album-section-items:before, .photo-section-items:before, .registry-section-items:before, .retailer-section-items:before, .row:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
     content:" ";
     display:table
 }
-.row:after, .rsvp-name-container:after, .rsvp-event-container:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
+.row:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
     clear:both
 }
-.row:before, .rsvp-name-container:before, .rsvp-event-container:before, .section-items:before, .event-section-items:before, .wedding-event-section-items:before, .wedding-party-section-items:before, .location-section-items:before, .album-section-items:before, .photo-section-items:before, .registry-section-items:before, .retailer-section-items:before, .row:after, .rsvp-name-container:after, .rsvp-event-container:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
+.row:before, .section-items:before, .event-section-items:before, .wedding-event-section-items:before, .wedding-party-section-items:before, .location-section-items:before, .album-section-items:before, .photo-section-items:before, .registry-section-items:before, .retailer-section-items:before, .row:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
     content:" ";
     display:table
 }
-.row:after, .rsvp-name-container:after, .rsvp-event-container:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
+.row:after, .section-items:after, .event-section-items:after, .wedding-event-section-items:after, .wedding-party-section-items:after, .location-section-items:after, .album-section-items:after, .photo-section-items:after, .registry-section-items:after, .retailer-section-items:after {
     clear:both
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .registry-item, .retailer-item, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .album-item, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .retailer-item, .col-sm-6, .registry-item, .col-md-6, .album-item, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .item, .event-item, .wedding-event-item, .location-item, .registry-item, .retailer-item, .item-separator, .event-separator, .wedding-event-separator, .location-separator, .col-sm-12, .blank-seperator, .col-md-12, .col-lg-12 {
@@ -1659,33 +1659,9 @@ input[type="text"].invalid, input[type="password"].invalid, textarea.invalid {
 .dialog .button-container button:first-of-type {
     margin-right:0
 }
-.dialog.rsvp {
-    z-index:10000;
-    font-size:0.88em;
-    font-family:HelveticaNeue-Light, Helvetica, Arial, sans-serif
-}
-.dialog.rsvp .dialog-region {
-    max-width:420px
-}
-.dialog.rsvp input[type="text"] {
-    font-weight:normal;
-    font-size:12px
-}
-.dialog.rsvp a {
-    display:inline-block;
-    font-size:13px;
-    cursor:pointer
-}
-.select-rsvp-meal:disabled {
-    opacity:0.4;
-    font-size:12px;
-    -webkit-appearance:none
-}
+
 input[type="radio"] {
     display:none
-}
-label.rsvp-button {
-    cursor:pointer
 }
 input:checked ~ label {
     background-color:white;
@@ -1708,21 +1684,11 @@ div#valid-error {
     color:red;
     margin-top:4px
 }
-.caret-rsvp {
-    right:20px
-}
 span#remove-last {
     font-size:13px;
     float:right;
     margin-right:3px;
     cursor:pointer
-}
-button.rsvp {
-    visibility:hidden !important;
-    display:none !important;
-    position:absolute;
-    right:0;
-    top:-6px
 }
 .edit-site {
     position:fixed;
@@ -2003,8 +1969,6 @@ button.main-nav {
         max-width:100%
     }
     #main-nav {
-        visibility:hidden;
-        display:none;
         margin-top:10px
     }
     #main-nav.visible {
@@ -2019,6 +1983,9 @@ button.main-nav {
         display:none !important;
         visibility:hidden !important
     }
+	#header h1{
+		margin-top: 200px !important;
+			}
 }
 @media (min-width: 768px) {
     .main-nav-container-inner {
@@ -2168,6 +2135,16 @@ button.main-nav {
     margin:0 auto;
     font-size:1.4em;
 }
+.item-description h1 {
+	font-family:"Pinyon Script";
+	color: #4D4D4D;
+	text-shadow:
+	-1px -1px 0 #a9a9a9,
+    1px -1px 0 #a9a9a9,
+    -1px 1px 0 #a9a9a9,
+    1px 1px 0 #a9a9a9;
+}
+
 .section-description p, .item-description p, .event-description p, .wedding-event-description p, .wedding-party-description p, .location-description p, .registry-note p, .event-section-description p, .wedding-event-section-description p, .wedding-party-section-description p, .location-section-description p, .registry-section-description p, .album-section-description p, .photo-section-description p, .section-description a, .item-description a, .event-description a, .wedding-event-description a, .wedding-party-description a, .location-description a, .registry-note a, .event-section-description a, .wedding-event-section-description a, .wedding-party-section-description a, .location-section-description a, .registry-section-description a, .album-section-description a, .photo-section-description a, .section-description a:hover, .item-description a:hover, .event-description a:hover, .wedding-event-description a:hover, .wedding-party-description a:hover, .location-description a:hover, .registry-note a:hover, .event-section-description a:hover, .wedding-event-section-description a:hover, .wedding-party-section-description a:hover, .location-section-description a:hover, .registry-section-description a:hover, .album-section-description a:hover, .photo-section-description a:hover {
     font-size:1em;
 }
