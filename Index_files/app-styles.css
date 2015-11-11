@@ -1986,12 +1986,22 @@ button.main-nav {
     height:32px;
     line-height:32px
 }
-.footer a, .footer a:hover {
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif
+.footer-text a {
+	font-family:"Pinyon Script" !important;
+	text-decoration: none !important;
+	color: rgba(67,67,67,1.00) !important;
+	font-size: 30px !important;
+}
+.footer-text a:hover {
+	font-family:"Pinyon Script" !important;
+	text-decoration: none !important;
+	font-sixe: 30px !important;
+	background-color: rgba(0,0,0,0.40) !important;
+	color: rgba(228,228,228,0.68) !important;
+	border-radius: 25px !important;
 }
 .footer-text {
     text-align:center;
-    font-size:1em;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif
 }
 #wedding-title {

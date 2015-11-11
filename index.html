@@ -2,16 +2,23 @@
 <head>
 <title>Protected Page: Please enter password</title>
 <STYLE>
-<!--
-a {text-decoration:none;
-color:rgba(67,67,67,1.00);
-font-size:30px;
-font-style:italic;
+a {
+	text-decoration:none;
+	color:rgba(67,67,67,1.00);
+	font-size:30px;
+	font-style:italic;
 }
+
+a:hover { 
+    background-color: rgba(0,0,0,0.40);
+	color: rgba(228,228,228,0.68);
+	border-radius: 25px;
+}
+
 body {
 	background:rgba(206,206,206,1.00);
 }
-//-->
+
 </STYLE>
 </head>
 <body>
@@ -23,7 +30,8 @@ while (testV < 3) {
 if (!pass1) 
 history.go(-1);
 if (pass1.toLowerCase() == "ajwedding1") {
-window.open('index_copy.html',"_self");
+alert('CORRECT! Thank you for visiting our webpage')
+window.open('index_copy.html');
 break;
 } 
 testV+=1;
