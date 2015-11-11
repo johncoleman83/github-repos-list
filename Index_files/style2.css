@@ -8,6 +8,13 @@ body, a, a:hover {
     color:#000;
     line-height:1.8
 }
+
+#frameHolderRegistry a {
+	font-family:"Pinyon Script";
+    font-size:60px;
+	text-decoration: none;
+}
+
 button {
     font-family:"Kotta One";
     font-size:15px;
