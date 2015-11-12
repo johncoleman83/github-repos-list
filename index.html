@@ -19,29 +19,34 @@ body {
 	background:rgba(206,206,206,1.00);
 }
 </STYLE>
+<script language="JavaScript" type="text/javascript">
+
+function TheLogin() {
+
+var password = 'ajwedding1';
+
+if (this.document.login.pass.value == password) {
+  top.location.href="index_copy.html";
+}
+else {
+  location.href="https://s-media-cache-ak0.pinimg.com/736x/ed/89/2a/ed892a0bfc4f18c263768d545df38f01.jpg";
+  }
+}
+
+</script>
+
+
 </head>
 <body>
 
-<script type="text/javascript">
-function passWord() {
-var password = "ajwedding1";
-var x = prompt("Enter in the password"," ");
-if (x.toLowerCase() === password) {
-  alert("CORRECT!\n \n Thank you for visiting our Web site by EVIC Design");
-  window.location = "index_copy.html";
-}
-else {
-  window.location = "https://s-media-cache-ak0.pinimg.com/736x/ed/89/2a/ed892a0bfc4f18c263768d545df38f01.jpg";
-}
-}
-</script>
-
 <CENTER>
 <br><br><br><br><br><br><br><br><br>
-<FORM>
-<input type="button" value="Please Enter Password for Website Access" onClick="passWord()">
-</FORM>
-</CENTER>
+password:<br>
+<form name="login" style="margin: 0px">
+<INPUT TYPE="text" NAME="pass" size="17" onKeyDown="if(event.keyCode==13) event.keyCode=9;" style="width: 152px; margin: 5px;"><br>
+<input type="button" value="Click to Login" style="width : 150px; margin: 3px" onClick="TheLogin(this.form)">
+</form>
+</center>
 
  <div class="footer">
             <div class="footer-text" align="center"><br><br><br><br><br>(password hint) e-mail: johncoleman83@gmail.com<br><a href="http://www.evicdesign.com" target="_blank">.oO  Website Created by EVIC Design  Oo.</a></div>
