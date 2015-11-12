@@ -18,31 +18,24 @@ a:hover {
 body {
 	background:rgba(206,206,206,1.00);
 }
-
 </STYLE>
 </head>
 <body>
-<SCRIPT>
+
+<script type="text/javascript">
 function passWord() {
-var testV = 1;
-var pass1 = prompt('Please Enter Your Password',' ');
-while (testV < 3) {
-if (!pass1) 
-history.go(-1);
-if (pass1.toLowerCase() == "ajwedding1") {
-alert('CORRECT! Thank you for visiting our webpage')
-window.open('index_copy.html');
-break;
-} 
-testV+=1;
-var pass1 = 
-prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+var password = "ajwedding1";
+var x = prompt("Enter in the password "," ");
+if (x.toLowerCase() == password) {
+  alert("CORRECT!\n \n Thank you for visiting our Web site by EVIC Design");
+  window.location = "index_copy.html";
 }
-if (pass1.toLowerCase()!="password" & testV ==3) 
-history.go(-1);
-return " ";
-} 
-</SCRIPT>
+else {
+  window.location = "https://s-media-cache-ak0.pinimg.com/736x/ed/89/2a/ed892a0bfc4f18c263768d545df38f01.jpg";
+}
+}
+</script>
+
 <CENTER>
 <br><br><br><br><br><br><br><br><br>
 <FORM>
@@ -51,7 +44,7 @@ return " ";
 </CENTER>
 
  <div class="footer">
-            <div class="footer-text" align="center"><br><br><br><br><br>(password hint) e-mail: johncoleman83@gmail.com<br><a href="http://www.evicdesign.co.nf" target="_blank">Website Created by EVIC Design</a></div>
+            <div class="footer-text" align="center"><br><br><br><br><br>(password hint) e-mail: johncoleman83@gmail.com<br><a href="http://www.evicdesign.com" target="_blank">.oO  Website Created by EVIC Design  Oo.</a></div>
         </div>
         
 </body>
