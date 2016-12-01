@@ -1,2 +1,2 @@
 # johncoleman83.github.io
-Fre hosting for website
+Free hosting for website
