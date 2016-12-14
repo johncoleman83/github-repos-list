@@ -223,14 +223,15 @@ header nav li:last-child{
 
 
 /*--------------------
- 	Our Work Section
+ 	my Work Section
 ---------------------*/
 
-.оur-work{
+.my-work{
 	background-color: #fff;
 }
 
-.our-work .grid li{
+.my-work .grid li{
+	text-align: center;
 	padding: 1%;
 	height: 350px;
 	border-radius: 3px;
@@ -241,11 +242,11 @@ header nav li:last-child{
 	background-color: #fff;
 }
 
-.our-work .grid li.small{
+.my-work .grid li.small{
 	flex-basis: 40%;
 }
 
-.our-work .grid li.large{
+.my-work .grid li.large{
 	flex-basis: 60%;
 	
 }
@@ -253,8 +254,8 @@ header nav li:last-child{
 
 @media (max-width: 1000px){
 
-	.our-work .grid li.small,
-	.our-work .grid li.large{
+	.my-work .grid li.small,
+	.my-work .grid li.large{
 		flex-basis: 100%;
 	}
 
