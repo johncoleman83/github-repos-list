@@ -102,9 +102,10 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
 		<hr>
 
-		<form>
-			<input type="email" placeholder="Email">
-			<a href="#" class="btn">Subscribe now</a>
+		<form method="POST" action="http://formspree.io/johncoleman83@gmail.com">
+			<input type="email" name="email" placeholder="Your email">
+			<textarea name="message" placeholder="Your message"></textarea>
+			<button type="submit">Send</button>
 		</form>
 	</section>
 
