@@ -364,7 +364,7 @@ header nav li:last-child{
 	background-color: #f7f7f7;
 }
 
-.contact form{
+.contact form {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -374,11 +374,10 @@ header nav li:last-child{
 	width: 80%;
 }
 
-.contact form input{
+.contact form input, .contact form textarea{
 	padding: 15px;
 	flex: 1;
-	margin-right: 30px;
-	font-size: 18px;
+	font-size: 20px;
 	color: #555;
 }
 
@@ -387,6 +386,7 @@ header nav li:last-child{
 	padding: .6em;
 	font-size: 20px;
 	background: #fff;
+	color: #555;
 }
 
 
