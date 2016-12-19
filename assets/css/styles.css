@@ -236,7 +236,6 @@ header nav li:last-child{
 	 flex-direction: column;
 	text-align: center;
 	padding: 1%;
-	height: 350px;
 	border-radius: 3px;
 	background-clip: content-box;
 	background-size: 100%;
