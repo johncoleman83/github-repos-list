@@ -230,10 +230,6 @@ header nav li:last-child{
 }
 
 .my-work .grid li{
-	 display: flex;
-	 margin: 0 25%;
-	 align-items: center;
-	 flex-direction: column;
 	text-align: center;
 	padding: 1%;
 	height: 350px;
