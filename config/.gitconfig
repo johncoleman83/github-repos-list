@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+        name = johncoleman83
+        email = djc_fileno@davidjohncoleman.com
+[core]
+        excludesfile = /Users/djcii/.gitignore_global
+	editor = emacs
+[credential]
+	helper = cache --timeout=99999999
