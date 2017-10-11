@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,11 +57,13 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-#OLD:    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="________________________________________________________________________________\n| \w @ \h (\u) \n$ "
+    # OLD PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1="-.\[\033[01;96m\]_.:':.\[\033[01;34m\]_.:':.\[\033[01;95m\]_.:':.\[\033[01;32m\]_.:':.\[\033[01;37m\]_.:':.\
+\[\033[01;90m\]_.:':._\[\033[01;37m\].:':._\[\033[01;32m\].:':._\[\033[01;95m\].:':._\[\033[01;34m\].:':._\[\033[01;96m\].:':._\[\033[00m\]\
+.-\n|\
+ \[\033[01;34m\]\w\[\033[00m\] @ \[\033[01;95m\]\h\[\033[00m\] (\[\033[01;32m\]\u\[\033[00m\]) \n$ "
 else
-#OLD:    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1="________________________________________________________________________________\n| \w @ \h (\u) \n$ "
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -80,46 +82,19 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
+
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-ssh() {
-    if [[ "$@" == "holberton" ]]; then
-	echo "   .. Which Server?? .."
-	echo ""
-	echo "(1) 123-web-01 = 66.70.187.105"
-	echo "(2) 123-web-02 = 142.44.164.125"
-	echo "(3) 123-lb-01 = 66.70.187.49"
-	echo "(4) docker container = 34.206.234.184"
-	echo " EXIT: any other number to quit"
-	echo ""
-	read -p "Please Enter the # for the server: " -n 1 -r IPADDRESS
-	echo ""
-	echo "... please wait"
-	if [[ "$IPADDRESS" == 1 ]]; then
-	    command ssh ubuntu@66.70.187.105 -i ~/.ssh/holberton
-	elif [[ "$IPADDRESS" == 2 ]]; then
-	    command ssh ubuntu@142.44.164.125 -i ~/.ssh/holberton
-	elif [[ "$IPADDRESS" == 3 ]]; then
-	    command ssh ubuntu@66.70.187.49 -i ~/.ssh/holberton
-	elif [[ "$IPADDRESS" == 4 ]]; then
-	    echo ""
-	    read -p "what is the port #? " port
-	    command ssh root@34.206.234.184 -p $port
-	else
-	    echo ""
-	    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
-	fi
-    else
-	command ssh "$@"
-    fi
-}
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -144,8 +119,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# set env variable for holberton server
-HBS_WEB01="66.70.187.105"; export HBS_WEB01
-HBS_WEB02="142.44.164.125"; export HBS_WEB02
-HBS_LB01="66.70.187.49"; export HBS_LB01
