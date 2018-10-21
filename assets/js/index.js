@@ -8,10 +8,19 @@ function generateTemplate (r) {
     '</a>',
     '<div class="row">',
     "<div class='col s12 m12 l12 xl12'>",
-      '<strong>' + r.description + '</strong>',
-      '<p> Languages: ' + getLanguages(r.languages_url) + '</p>',
+      '<p><strong>' + r.description + '</strong></p>',
+      '<p>Languages: ' + getLanguages(r.languages_url) + '</p>',
+      '<p>Updated At: ' + r.updated_at + '</p>',
+      getWebsite(r),
     '</div></div></div>',
   ].join('');
+}
+
+function getWebsite (repo) {
+  if (repo.homepage && typeof repo.homepage === "string" && repo.homepage.length > 0) {
+    return '<p>Homepage: ' + repo.homepage + '</p>';
+  }
+  return '';
 }
 
 function getLanguages (url) {
