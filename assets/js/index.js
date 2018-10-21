@@ -35,19 +35,6 @@ function makeHomepage (homepage) {
   }
 }
 
-function getLanguages (url) {
-  return $.ajax({
-    url: url,
-    type: 'GET'
-    //success: function (data) {
-    //  metaData['Languages'] = '<p>Languages: ' + Object.keys(data).join(', ') + '</p>';
-    //},
-    //error: function (data) {
-    //  metaData['Languages'] = '';
-    //}
-  });
-}
-
 function generateTemplate (repo) {
   makeHomepage(repo.homepage);
   makeDateFormat(repo.updated_at);
@@ -56,56 +43,53 @@ function generateTemplate (repo) {
   makeRepoLink(repo.html_url, repo.full_name);
   makeLicenseLink(repo.license);
 
-  getLanguages(repo.languages_url).then(
-    function(response) {
-      console.info(response);
-      metaData['Languages'] = '<p>Languages: ' + Object.keys(response).join(', ') + '</p>';
-      return [
-        '<div class="card-panel grey lighten-4 z-depth-4">',
-        '<div class="row valign-wrapper">',
-        "<div class='col s12 m6 l3 xl3'>",
-        metaData['RepoLink'],
-        '<div class="row">',
-        "<div class='col s12 m12 l12 xl12'>",
-        metaData['Description'],
-        metaData['Homepage'],
-        metaData['Languages'],
-        metaData['Date'],
-        metaData['License'],
-        '</div></div></div></div></div>',
-      ].join('');
-    }, function(error) {
-      console.info(error);
+  return [
+    '<div class="card-panel grey lighten-4 z-depth-4">',
+    '<div class="row valign-wrapper">',
+    "<div class='col s12 m6 l3 xl3'>",
+    metaData['RepoLink'],
+    '<div class="row">',
+    "<div class='col s12 m12 l12 xl12'>",
+    metaData['Description'],
+    metaData['Homepage'],
+    metaData['Date'],
+    metaData['License'],
+    '</div></div></div></div></div>',
+  ].join('');
+}
+
+function appendRepoToHtml (repo, i) {
+  if (i % 4 === 0) {
+    $('#repositories').append('<div class="row">');
+  }
+  let template = generateTemplate(repo);
+  $('#repositories').append(template);
+  if (i % 4 === 3) {
+    $('#repositories').append('</div>');
+  }
+  i += 1;
+}
+
+function loopReposTask (data) {
+  let i = 0;
+  data.forEach(function (repo) {
+    if (repo && repo.id) {
+      appendRepoToHtml(repo, i)
+      i += 1;
     }
-  );
+  });
+  if (i !== 4) {
+    $('#repositories').append('</div>');
+  }
 }
 
 var getData = (function ($) {
   let ReposUrl = `https://api.github.com/users/${SUBJECT}/repos`
-  let i;
   $.ajax({
     url: ReposUrl,
     type: 'GET',
     success: function (data) {
-      i = 0;
-      data.forEach(function (repo) {
-        if (!repo || !repo.id) {
-          return true
-        }
-  
-        let template = generateTemplate(repo);
-        if (i % 4 === 0) {
-          $('#repositories').append('<div class="row">');
-        }
-        $('#repositories').append(template);
-        if (i % 4 === 3) {
-          $('#repositories').append('</div>');
-        }
-        i += 1;
-      });
-      if (i !== 4) {
-        $('#repositories').append('</div>');
-      }
+      loopReposTask(data);
     },
     error: function (data) {
       console.info(data);
