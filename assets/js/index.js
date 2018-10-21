@@ -7,7 +7,7 @@ function makeRepoLink (html_url, full_name) {
 
 function makeLicenseLink (license) {
   if (license && license.url && license.name) {
-    metaData['License'] = "<a target='_blank' href='" + license.url + "'>" + license.name + '</a>';
+    metaData['License'] = "<a target='_blank' href='" + license.url + "'><i class='fas fa-key'></i> " + license.name + '</a>';
   } else {
     metaData['License'] = '';
   }
@@ -29,7 +29,7 @@ function makeDateFormat (date) {
 function makeHomepage (homepage) {
   if (homepage && typeof homepage === "string" && homepage.length > 0) {
     let href = "<a target='_blank' href='" + homepage + "'>" + homepage + '</a>';
-    metaData['Homepage'] = '<p class="word-wrap: break-word;">Homepage: ' + href + '</p>';
+    metaData['Homepage'] = '<p class="word-wrap: break-word;"><i class="fas fa-globe"></i> ' + href + '</p>';
   } else {
     metaData['Homepage'] = '';
   }
