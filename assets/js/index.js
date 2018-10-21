@@ -2,7 +2,7 @@ const SUBJECT = 'johncoleman83'
 
 function generateTemplate (r) {
   return [
-    "<div class='col s12 m6 l3 xl4'>",
+    "<div class='col s12 m6 l3 xl3'>",
     "<a class='thumbnail' target='_blank' href='" + r.html_url + "'>",
     r.full_name,
     '</a>',
