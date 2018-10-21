@@ -49,7 +49,6 @@ function getLanguages (url) {
 }
 
 function generateTemplate (repo) {
-  let promises = [];
   makeHomepage(repo.homepage);
   makeDateFormat(repo.updated_at);
   makeDateFormat(repo.updated_at);
@@ -57,25 +56,25 @@ function generateTemplate (repo) {
   makeRepoLink(repo.html_url, repo.full_name);
   makeLicenseLink(repo.license);
 
-  promises.push(getLanguages(repo.languages_url));
-  $.when.apply($, promises).then(function() {
-    return [
-      '<div class="card-panel grey lighten-4 z-depth-4">',
-      '<div class="row valign-wrapper">',
-      "<div class='col s12 m6 l3 xl3'>",
-      metaData['RepoLink'],
-      '<div class="row">',
-      "<div class='col s12 m12 l12 xl12'>",
-      metaData['Description'],
-      metaData['Homepage'],
-      metaData['Languages'],
-      metaData['Date'],
-      metaData['License'],
-      '</div></div></div></div></div>',
-    ].join('');
-  }, function() {
-      return '';
-  });
+  getLanguages(repo.languages_url).then(
+    function(response) {
+      console.info(response);
+      return [
+        '<div class="card-panel grey lighten-4 z-depth-4">',
+        '<div class="row valign-wrapper">',
+        "<div class='col s12 m6 l3 xl3'>",
+        metaData['RepoLink'],
+        '<div class="row">',
+        "<div class='col s12 m12 l12 xl12'>",
+        metaData['Description'],
+        metaData['Homepage'],
+        metaData['Languages'],
+        metaData['Date'],
+        metaData['License'],
+        '</div></div></div></div></div>',
+      ].join('');
+    }
+  );
 }
 
 var getData = (function ($) {
