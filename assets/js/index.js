@@ -36,33 +36,35 @@ function getLanguages (url) {
 }
 
 var getData = (function ($) {
-  let repos = []
   let ReposUrl = `https://api.github.com/users/${SUBJECT}/repos`
-
+  let i;
   $.ajax({
     url: ReposUrl,
     type: 'GET',
     success: function (data) {
-      let i = 0;
+      i = 0;
       data.forEach(function (r) {
         if (!r || !r.id) {
           return true
         }
   
         let template = generateTemplate(r);
-        if (i % 4 == 0) {
-          $('#repositories').append(
-            '<div class="row">' + template + '</div>'
-          );
-        } else {
-          $('#repositories').append(template);
+        if (i % 4 === 0) {
+          $('#repositories').append('<div class="row">');
         }
-        repos.push(r.html_url)
+        $('#repositories').append(template);
+        if (i % 4 === 3) {
+          $('#repositories').append('</div>');
+        }
         i += 1;
       });
     },
     error: function (data) {
+      i = 4;
       console.info(data);
     }
   });
+  if (i !== 4) {
+    $('#repositories').append('</div>');
+  }
 })($)
