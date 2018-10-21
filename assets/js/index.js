@@ -38,13 +38,13 @@ function makeHomepage (homepage) {
 function getLanguages (url) {
   return $.ajax({
     url: url,
-    type: 'GET',
-    success: function (data) {
-      metaData['Languages'] = '<p>Languages: ' + Object.keys(data).join(', ') + '</p>';
-    },
-    error: function (data) {
-      metaData['Languages'] = '';
-    }
+    type: 'GET'
+    //success: function (data) {
+    //  metaData['Languages'] = '<p>Languages: ' + Object.keys(data).join(', ') + '</p>';
+    //},
+    //error: function (data) {
+    //  metaData['Languages'] = '';
+    //}
   });
 }
 
@@ -59,6 +59,7 @@ function generateTemplate (repo) {
   getLanguages(repo.languages_url).then(
     function(response) {
       console.info(response);
+      metaData['Languages'] = '<p>Languages: ' + Object.keys(response).join(', ') + '</p>';
       return [
         '<div class="card-panel grey lighten-4 z-depth-4">',
         '<div class="row valign-wrapper">',
@@ -73,6 +74,8 @@ function generateTemplate (repo) {
         metaData['License'],
         '</div></div></div></div></div>',
       ].join('');
+    }, function(error) {
+      console.info(error);
     }
   );
 }
