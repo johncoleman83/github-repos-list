@@ -1,9 +1,13 @@
-# This is Git's per-user configuration file.
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [user]
-        name = johncoleman83
-        email = djc_fileno@davidjohncoleman.com
+	name = John Coleman
+        #name = John Coleman and Travis Herrick
+	email = jcoleman@pagerduty.com
 [core]
-        excludesfile = /Users/djcii/.gitignore_global
 	editor = emacs
-[credential]
-	helper = cache --timeout=99999999
+[format]
+        pretty = format:%C(yellow)%h%Creset | %C(cyan)%cr%Creset | %s %C(yellow)%d %Cred[%an]
+[alias]
+        conflict = !git info `cat .git/HEAD` && git info `cat .git/rebase-apply/original-commit`
+        newbranch = "!newbranch() { git checkout master && git fetch origin master && git reset --hard origin/master && git checkout -b \"$1\"; }; newbranch"
