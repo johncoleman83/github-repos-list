@@ -1,38 +1,81 @@
-const SUBJECT = 'johncoleman83'
+const SUBJECT = 'johncoleman83';
+const metaData = {};
 
-function generateTemplate (r) {
-  return [
-    '<div class="card-panel grey lighten-4 z-depth-4">',
-    '<div class="row valign-wrapper">',
-    "<div class='col s12 m6 l3 xl3'>",
-    "<a target='_blank' href='" + r.html_url + "'>",
-    r.full_name,
-    '</a>',
-    '<div class="row">',
-    "<div class='col s12 m12 l12 xl12'>",
-      '<p><strong>' + r.description + '</strong></p>',
-      getHomepage(r),
-      '<p>Languages: ' + getLanguages(r.languages_url) + '</p>',
-      '<p>Updated At: ' + getDateFormat(r.updated_at) + '</p>',
-    '</div></div></div></div></div>',
-  ].join('');
+function makeRepoLink (html_url, full_name) {
+  metaData['RepoLink'] = "<a target='_blank' href='" + html_url + "'>" + full_name + '</a>';
 }
 
-function getDateFormat(date) {
-  let dateObj = new Date(date);
-  return dateObj.toDateString();
-}
-
-function getHomepage (repo) {
-  if (repo.homepage && typeof repo.homepage === "string" && repo.homepage.length > 0) {
-    let href = "<a target='_blank' href='" + repo.homepage + "'>" + repo.homepage + '</a>';
-    return '<p>Homepage: ' + href + '</p>';
+function makeLicenseLink (license) {
+  if (license && license.url && license.name) {
+    metaData['License'] = "<a target='_blank' href='" + license.url + "'>" + license.name + '</a>';
+  } else {
+    metaData['License'] = '';
   }
-  return '';
+}
+
+function makeDescription (desc) {
+  if (desc) {
+    metaData['Description'] = '<p><strong>' + desc + '</strong></p>';
+  } else {
+    metaData['Description'] = '';
+  }
+}
+
+function makeDateFormat (date) {
+  let dateObj = new Date(date);
+  metaData['Date'] = '<p>Updated At: ' + dateObj.toDateString() + '</p>';
+}
+
+function makeHomepage (homepage) {
+  if (homepage && typeof homepage === "string" && homepage.length > 0) {
+    let href = "<a target='_blank' href='" + homepage + "'>" + homepage + '</a>';
+    metaData['Homepage'] = '<p>Homepage: ' + href + '</p>';
+  } else {
+    metaData['Homepage'] = '';
+  }
 }
 
 function getLanguages (url) {
-  return "None";
+  return $.ajax({
+    url: url,
+    type: 'GET',
+    success: function (data) {
+      metaData['Languages'] = '<p>Languages: ' + Object.keys(data).join(', ') + '</p>';
+    },
+    error: function (data) {
+      metaData['Languages'] = '';
+    }
+  });
+}
+
+function generateTemplate (repo) {
+  let promises = [];
+  makeHomepage(repo.homepage);
+  makeDateFormat(repo.updated_at);
+  makeDateFormat(repo.updated_at);
+  makeDescription(repo.description);
+  makeRepoLink(repo.html_url, repo.full_name);
+  makeLicenseLink(repo.license);
+
+  promises.push(getLanguages(repo.languages_url));
+  $.when.apply($, promises).then(function() {
+    return [
+      '<div class="card-panel grey lighten-4 z-depth-4">',
+      '<div class="row valign-wrapper">',
+      "<div class='col s12 m6 l3 xl3'>",
+      metaData['RepoLink'],
+      '<div class="row">',
+      "<div class='col s12 m12 l12 xl12'>",
+      metaData['Description'],
+      metaData['Homepage'],
+      metaData['Languages'],
+      metaData['Date'],
+      metaData['License'],
+      '</div></div></div></div></div>',
+    ].join('');
+  }, function() {
+      return '';
+  });
 }
 
 var getData = (function ($) {
@@ -43,12 +86,12 @@ var getData = (function ($) {
     type: 'GET',
     success: function (data) {
       i = 0;
-      data.forEach(function (r) {
-        if (!r || !r.id) {
+      data.forEach(function (repo) {
+        if (!repo || !repo.id) {
           return true
         }
   
-        let template = generateTemplate(r);
+        let template = generateTemplate(repo);
         if (i % 4 === 0) {
           $('#repositories').append('<div class="row">');
         }
@@ -58,13 +101,12 @@ var getData = (function ($) {
         }
         i += 1;
       });
+      if (i !== 4) {
+        $('#repositories').append('</div>');
+      }
     },
     error: function (data) {
-      i = 4;
       console.info(data);
     }
   });
-  if (i !== 4) {
-    $('#repositories').append('</div>');
-  }
 })($)
