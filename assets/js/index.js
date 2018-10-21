@@ -29,7 +29,7 @@ function makeDateFormat (date) {
 function makeHomepage (homepage) {
   if (homepage && typeof homepage === "string" && homepage.length > 0) {
     let href = "<a target='_blank' href='" + homepage + "'>" + homepage + '</a>';
-    metaData['Homepage'] = '<p>Homepage: ' + href + '</p>';
+    metaData['Homepage'] = '<p class="word-wrap: break-word;">Homepage: ' + href + '</p>';
   } else {
     metaData['Homepage'] = '';
   }
@@ -44,42 +44,43 @@ function generateTemplate (repo) {
   makeLicenseLink(repo.license);
 
   return [
-    '<div class="card-panel grey lighten-4 z-depth-4">',
-    '<div class="row valign-wrapper">',
-    "<div class='col s12 m6 l3 xl3'>",
-    metaData['RepoLink'],
-    '<div class="row">',
-    "<div class='col s12 m12 l12 xl12'>",
-    metaData['Description'],
-    metaData['Homepage'],
-    metaData['Date'],
-    metaData['License'],
-    '</div></div></div></div></div>',
+    "<div class='col s12 m6 l4 xl4'>",
+      '<div class="card-panel grey lighten-4 z-depth-4">',
+        '<div class="row valign-wrapper">',
+          '<div class="col s12 m12 l12 xl12">',
+            metaData['RepoLink'],
+            metaData['Description'],
+            metaData['Homepage'],
+            metaData['Date'],
+            metaData['License'],
+          '</div>',
+        '</div>',
+      '</div>',
+    '</div>',
   ].join('');
-}
-
-function appendRepoToHtml (repo, i) {
-  if (i % 4 === 0) {
-    $('#repositories').append('<div class="row">');
-  }
-  let template = generateTemplate(repo);
-  $('#repositories').append(template);
-  if (i % 4 === 3) {
-    $('#repositories').append('</div>');
-  }
-  i += 1;
 }
 
 function loopReposTask (data) {
   let i = 0;
-  data.forEach(function (repo) {
+  let section = [];
+  data.forEach((repo) => {
     if (repo && repo.id) {
-      appendRepoToHtml(repo, i)
+      if (i % 3 === 0) {
+        section.push('<div class="row">');
+      }
+      let template = generateTemplate(repo);
+      section.push(template);
+      if (i % 3 === 2) {
+        section.push('</div>');
+        $('#repositories').append(section.join(''));
+        section = [];
+      }
       i += 1;
     }
   });
-  if (i !== 4) {
-    $('#repositories').append('</div>');
+  if (i !== 3) {
+    section.push('</div>')
+    $('#repositories').append(section.join(''));
   }
 }
 
