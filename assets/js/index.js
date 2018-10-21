@@ -2,7 +2,7 @@ const SUBJECT = 'johncoleman83';
 const metaData = {};
 
 function makeRepoLink (html_url, full_name) {
-  metaData['RepoLink'] = "<a target='_blank' href='" + html_url + "'>" + full_name + '</a>';
+  metaData['RepoLink'] = "<a target='_blank' href='" + html_url + "'><i class='fas fa-code'></i> " + full_name + '</a>';
 }
 
 function makeLicenseLink (license) {
@@ -23,7 +23,7 @@ function makeDescription (desc) {
 
 function makeDateFormat (date) {
   let dateObj = new Date(date);
-  metaData['Date'] = '<p>Updated At: ' + dateObj.toDateString() + '</p>';
+  metaData['Date'] = '<p><i class="far fa-clock"></i> Updated: ' + dateObj.toDateString() + '</p>';
 }
 
 function makeHomepage (homepage) {
