@@ -1,1 +1,7 @@
 /* Can add custom style here */
+
+@media (max-width: 500px) {
+	h1 {
+			font-size: 15px !important;
+	}
+}

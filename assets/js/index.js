@@ -28,8 +28,8 @@ function makeDateFormat (date) {
 
 function makeHomepage (homepage) {
   if (homepage && typeof homepage === "string" && homepage.length > 0) {
-    let href = "<a target='_blank' href='" + homepage + "'>" + homepage + '</a>';
-    metaData['Homepage'] = '<p class="word-wrap: break-word;"><i class="fas fa-globe"></i> ' + href + '</p>';
+    let href = "<a style='word-wrap: break-word;' target='_blank' href='" + homepage + "'>" + homepage + '</a>';
+    metaData['Homepage'] = '<p><i class="fas fa-globe"></i> ' + href + '</p>';
   } else {
     metaData['Homepage'] = '';
   }
@@ -46,7 +46,7 @@ function generateTemplate (repo) {
   return [
     "<div class='col s12 m6 l4 xl4'>",
       '<div class="card-panel grey lighten-4 z-depth-4">',
-        '<div class="row valign-wrapper">',
+        '<div class="row">',
           '<div class="col s12 m12 l12 xl12">',
             metaData['RepoLink'],
             metaData['Description'],
