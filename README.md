@@ -1,12 +1,13 @@
 # github-repos-list 
 
-This template can be used to show a list of all the public repositories of a github user
+This template can be used to show a list of all the public repositories of a github user. It uses
+material design from materialize library and Github API v3
 
 ## deps
 
 - a github account
 - github pages (if you want to host with github)
-- materialize
+- materialize (material design)
 - jquery
 
 ## Author
