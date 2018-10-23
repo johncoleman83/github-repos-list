@@ -119,6 +119,21 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 # New Functions instead of aliases
 
 # Always list directory contents upon 'cd'
+function git () {
+    if [[ "$@" == "push origin master" ]]; then
+        read -p "really really push to master ? " -n 1 -r YES_I_LIVE_ON_EDGE
+        echo ""
+        if [[ ! "$YES_I_LIVE_ON_EDGE" =~ ^[Yy]$ ]]; then
+            echo "saved you this time..."
+            [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+        else
+            git push origin master
+        fi
+    else
+        command git "$@"
+    fi
+}
+
 function cd () {
     builtin cd "$@";
     ll;
@@ -136,7 +151,7 @@ function ql () {
 
 # docker pretty print
 function docker () {
-    if [[ "$@" == "ps -p" ]]; then
+    if [[ "$@" == "ps -a" ]]; then
         command docker ps --all --format "{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}" \
             | (echo -e "CONTAINER_ID\tNAMES\tIMAGE\tPORTS\tSTATUS" && cat) \
             | awk '{printf "\033[1;32m%s\t\033[01;38;5;95;38;5;196m\%s\t\033[00m\033[1;34m%s\t\033[01;90m%s %s %s %s %s %s %s\033[00m\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10;}' \
