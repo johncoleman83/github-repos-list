@@ -10,6 +10,11 @@ material design from materialize library and Github API v3
 - materialize (material design)
 - jquery
 
+## ignore
+
+- all the junk in config
+- all junk in old_site
+
 ## Author
 
 *  David John Coleman II, [davidjohncoleman.com](http://www.davidjohncoleman.com/)
