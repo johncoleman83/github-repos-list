@@ -12,8 +12,7 @@ material design from materialize library and Github API v3
 
 ## ignore
 
-- all the junk in config
-- all junk in old_site
+- all junk in old_site (this was old github pages site)
 
 ## Author
 
