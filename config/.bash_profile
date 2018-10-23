@@ -127,7 +127,7 @@ function git () {
             echo "saved you this time..."
             [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
         else
-            git push origin master
+            command git push origin master
         fi
     else
         command git "$@"
